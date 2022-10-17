@@ -1,4 +1,4 @@
-package com.exercice.translator;
+package com.pambrun.az.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,15 +6,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TRANSLATEGERMAN")
-public class TranslateGermanEntity {
+@Table(name="TRANSLATEFRENCH")
+public class FrenchTranslateEntity {
 
     @Id
     @Column(name = "NOMBREPOURTRAD", nullable = false)
     private int nombrePourTrad;
-
+    
     @Column(name = "NOMBREENLETTRE", nullable = false)
     private String nombreEnLettre;
+
+    @Column(name = "LANG", nullable = false)
+    private String langue;
+
+    public String getLangue() {
+        return langue;
+    }
+
+    public void setLangue(String langue) {
+        this.langue = langue;
+    }
 
     public int getNombrePourTrad() {
         return nombrePourTrad;
@@ -32,11 +43,15 @@ public class TranslateGermanEntity {
         this.nombreEnLettre = nombreEnLettre;
     }
 
+    // Generer un toString pour le debug
+
+
     @Override
     public String toString() {
-        return "TranslateGermanEntity{" +
+        return "EntityFrenchTranslate{" +
                 "nombrePourTrad=" + nombrePourTrad +
                 ", nombreEnLettre='" + nombreEnLettre + '\'' +
+                ", langue='" + langue + '\'' +
                 '}';
     }
 }
