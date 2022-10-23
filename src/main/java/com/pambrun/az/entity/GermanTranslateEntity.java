@@ -13,7 +13,7 @@ public class GermanTranslateEntity {
     @Column(name = "NOMBREPOURTRAD", nullable = false)
     private int nombrePourTrad;
 
-    @Column(name = "NOMBREENLETTRE", nullable = false)
+    @Column(nullable = false)
     private String nombreEnLettre;
 
     @Column(name = "LANG", nullable = false)

@@ -22,7 +22,7 @@ public class TranslateController {
             @PathVariable(name = "nb") int nb,
             @RequestParam("lang") String lang) {
 
-        return ResponseEntity.ok().body(translateService.getTranslation(nb, lang).getTranslation());
+        return ResponseEntity.ok().body(translateService.getTranslation(lang, nb).getTranslation());
     }
 
 }

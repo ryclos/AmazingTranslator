@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class FrenchTranslateEntity {
 
     @Id
-    @Column(name = "NOMBREPOURTRAD", nullable = false)
+    @Column(name = "NUMBER", nullable = false)
     private int nombrePourTrad;
     
     @Column(name = "NOMBREENLETTRE", nullable = false)
