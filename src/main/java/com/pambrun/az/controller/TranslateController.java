@@ -1,9 +1,14 @@
 package com.pambrun.az.controller;
 
+import com.pambrun.az.exception.ApiRequestException;
 import com.pambrun.az.service.TranslateService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/translate") // Premier lien après la racine
@@ -22,7 +27,10 @@ public class TranslateController {
             @PathVariable(name = "nb") int nb,
             @RequestParam("lang") String lang) {
 
-        return ResponseEntity.ok().body(translateService.getTranslation(lang, nb).getTranslation());
+        if (nb < 0 || nb > 30) {
+            throw new ApiRequestException("Cela dépasse le range des chiffre existant");
+        }
+            return ResponseEntity.ok().body(translateService.getTranslation(lang, nb).getTranslation());
     }
 
 }
